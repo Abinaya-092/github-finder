@@ -5,7 +5,11 @@ function App() {
   const [searchedUser, setSearchedUser]=useState("")
   const [userData, setUserData]=useState(null)
   const [error, setError]= useState("")
+  const [loading, setLoading]= useState(false)
   useEffect(()=>{
+  if(!searchedUser) return 
+  setLoading(true);
+  setError("") 
   fetch(`https://api.github.com/users/${searchedUser}`)
   .then(res => res.json())
   .then(data => 
@@ -19,8 +23,11 @@ function App() {
         setError("")
         setUserData(data)
       }
+    setLoading(false);
+    
     }
   )
+  
   },[searchedUser])
 
 return (
@@ -63,6 +70,7 @@ return (
         </div>
       </div>
     )}
+    {loading && <p>Searching...</p>}
   </div>
 )
 }
