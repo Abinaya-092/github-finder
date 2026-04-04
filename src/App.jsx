@@ -67,6 +67,12 @@ return (
             <p className="font-bold">{userData.public_repos}</p>
             <p className="text-gray-400 text-xs">Repos</p>
           </div>
+          <div className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm">
+            <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
+              View Profile
+            </a>
+          </div>
+         
         </div>
       </div>
     )}
