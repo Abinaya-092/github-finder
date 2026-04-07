@@ -140,7 +140,11 @@ function App() {
         </button>
       </div>
 
-      {loading && <p className="text-blue-400 mb-4 animate-pulse">Searching...</p>}
+      {loading && 
+      <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin">
+      {/* <p className="text-blue-400 mb-4 animate-pulse">Searching...</p> */}
+      </div>
+      }
       {error && <p className="text-red-400 mb-4">{error}</p>}
 
       {userData && !loading && (
